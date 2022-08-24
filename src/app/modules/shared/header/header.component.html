@@ -1,0 +1,60 @@
+<div class="header">
+  <kendo-breadcrumb [items]="items" (itemClick)="onItemClick($event)"></kendo-breadcrumb>
+
+  <div class="header-profile" #anchor>
+    <div class="header-details">
+      <span class="header-name">Name</span>
+      <span class="header-sbu">SBU</span>
+    </div>
+    <span>
+      <kendo-badge-container class="header-badge">
+        <kendo-avatar shape="circle" [imageSrc]="avatarURL"></kendo-avatar>
+        <kendo-badge
+          size="medium"
+          themeColor="success"
+          [align]="badgeAlign"
+          [cutoutBorder]="true"
+          [shape]="dot"
+          [position]="badgePosition"
+        >
+        </kendo-badge>
+      </kendo-badge-container>
+    </span>
+  </div>
+
+  <div class="notifications">
+    <!-- <span class="k-icon k-i-notification"></span> -->
+    <!-- <kendo-badge class="notification-counter"></kendo-badge> -->
+    <button icon="k-icon k-i-notification" kendoButton #anchor (click)="onToggle()"></button>
+  </div>
+
+  <div class="logout">
+    <span class="k-icon k-i-logout"></span>
+  </div>
+
+  <kendo-popup
+    [anchor]="{ nativeElement: anchor }"
+    (anchorViewportLeave)="show = false"
+    *ngIf="show"
+    class="notification-popup-wrap"
+    >
+  <div class="notification-popup">
+    <div class="notification-popup-header">
+      <span>NOTIFICATIONS</span>
+      <button  kendoButton rounded="full" fillMode="outline"> Clear All</button>
+    </div>
+    <div class="notification-popup-body">
+      <div class="notification-message notification-success">
+        <span><b>PO:AAA0307 created</b></span>
+        <br>
+        <span><small>successfully</small></span>
+      </div>
+      <div class="notification-message notification-warning">
+        <span><b>PO:AAA0307 created</b></span>
+        <br>
+        <span><small>warning</small></span>
+      </div>
+    </div>
+  </div>
+  </kendo-popup>
+</div>

@@ -1,0 +1,99 @@
+<kendo-tabstrip>
+    <kendo-tabstrip-tab title="Filter Data By Cnl" [selected]="true">
+        <ng-template kendoTabContent>
+<div class="col-md-12">
+    <kendo-textbox type="text" placeholder="cnldata" [(ngModel)]="cnlDataFilter"></kendo-textbox> <br><br>
+    <button kendoButton [primary]="true" (click)="getDataByCnl(cnlDataFilter)">show Data</button>
+</div>
+
+<div>
+    <label></label><br>
+    <label>data</label><br>
+</div>
+
+
+<div *ngIf="filterdCnlData">
+
+  <label>Domain :{{filterdCnlData.eventPayload.domain}}</label><br>
+  <label>Id :{{filterdCnlData.id}}</label><br>
+  <label>User: {{filterdCnlData.user}}</label><br>
+  <label>SyncType: {{filterdCnlData.syncType}}</label> <br>
+  
+  <label>StatusCode: {{filterdCnlData.statusCode}}</label><br>
+  <label>Status: {{filterdCnlData.status}}</label><br>
+
+  <label>CreatedAt: {{filterdCnlData.createdAt}}</label><br>
+  <label>EventDate: {{filterdCnlData.eventDate}}</label><br>
+  <label>ModifiedAt :{{filterdCnlData.eventPayload.attributes.ModifiedAt}}</label><br>
+  <label>processedAt :{{filterdCnlData.eventPayload.processedAt}}</label><br>
+
+  <label>ModifiedBy :{{filterdCnlData.eventPayload.attributes.ModifiedBy}}</label><br>
+
+  <label>Operation :{{filterdCnlData.eventPayload.operation}}</label><br>
+  <label>RetryCount :{{filterdCnlData.retryCount}}</label><br>
+  <label>bxM3Ready :{{filterdCnlData.eventPayload.attributes.bxM3Ready}}</label><br><br>
+
+  <div>
+ 
+    <div *ngIf="styleQueryTableData">
+        <kendo-grid [data]="styleQueryTableData">
+            <kendo-grid-column field="data.description" title="description"> </kendo-grid-column>
+            <kendo-grid-column field="data.cnl" title="cnl"> </kendo-grid-column>
+            <kendo-grid-column field="data.product" title="product"> </kendo-grid-column>
+            <kendo-grid-column field="data.styleType" title="styleType"> </kendo-grid-column>
+            <kendo-grid-column field="data.bxSilhouette" title="bxSilhouette"> </kendo-grid-column>
+            <kendo-grid-column field="data.bxSilhouette1" title="bxSilhouette1"> </kendo-grid-column>
+            <kendo-grid-column field="data.proposedProductionPlant" title="proposedProductionPlant"> </kendo-grid-column>
+
+            <kendo-grid-column field="data.bxPortofDest" title="bxPortofDest"> </kendo-grid-column>
+            <kendo-grid-column field="data.companySeason" title="companySeason"> </kendo-grid-column>
+            <kendo-grid-column field="data.bxSeasonPeriod" title="bxSeasonPeriod"> </kendo-grid-column>
+            <kendo-grid-column field="data.bxSeasonYear" title="bxSeasonYear"> </kendo-grid-column>
+            <kendo-grid-column field="data.developmentMerchant" title="developmentMerchant"> </kendo-grid-column>
+            <kendo-grid-column field="data.bxCustomer" title="bxCustomer"> </kendo-grid-column>
+            <kendo-grid-column field="data.bxLacePanelRequirement" title="bxLacePanelRequirement"> </kendo-grid-column>
+            <kendo-grid-column field="data.bxProductRange" title="bxProductRange"> </kendo-grid-column>
+
+            <kendo-grid-column field="data.developmentType" title="developmentType"> </kendo-grid-column>
+            <kendo-grid-column field="data.cluster" title="cluster"> </kendo-grid-column>
+            <kendo-grid-column field="data.bxBrand" title="bxBrand"> </kendo-grid-column>
+            <kendo-grid-column field="data.gender" title="gender"> </kendo-grid-column>
+            <kendo-grid-column field="data.strategicUnit" title="strategicUnit"> </kendo-grid-column>
+            <kendo-grid-column field="data.bxWorkstydyGroup" title="bxWorkstydyGroup"> </kendo-grid-column>
+            <kendo-grid-column field="data.program" title="program"> </kendo-grid-column>
+            <kendo-grid-column field="data.bxBuyerDivision" title="bxBuyerDivision"> </kendo-grid-column>
+          </kendo-grid>
+     </div>
+    
+     <br><br>
+
+    <div *ngIf="styleColorQueryTableData">
+        <kendo-grid [data]="styleColorQueryTableData">
+            <kendo-grid-column field="data.productPlmStyle" title="productPlmStyle"> </kendo-grid-column>
+            <kendo-grid-column field="data.customer" title="customer"> </kendo-grid-column>
+            <kendo-grid-column field="data.garmentColorwayName" title="garmentColorwayName"> </kendo-grid-column>
+            <kendo-grid-column field="data.smvAutomation" title="smvAutomation"> </kendo-grid-column>
+            <kendo-grid-column field="data.smvFinal" title="smvFinal"> </kendo-grid-column>
+            <kendo-grid-column field="data.epm" title="epm"> </kendo-grid-column>
+            <kendo-grid-column field="data.salePrice" title="salePrice"> </kendo-grid-column>
+          </kendo-grid>
+     </div>
+    
+     <br><br>
+
+     <div *ngIf="styleSizeQueryTableData">
+        <kendo-grid [data]="styleSizeQueryTableData">
+            <kendo-grid-column field="data.product" title="product"> </kendo-grid-column>
+            <kendo-grid-column field="data.size" title="size"> </kendo-grid-column>
+            <kendo-grid-column field="data.sortOrder" title="sortOrder">
+            </kendo-grid-column>
+          </kendo-grid>
+     </div>
+
+
+  </div> 
+ </div>
+
+</ng-template>
+</kendo-tabstrip-tab>
+</kendo-tabstrip>
